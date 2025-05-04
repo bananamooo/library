@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.globaltech.com/usa#"
+     xml:base="http://www.globaltech.com/usa"
+     xmlns:us="http://www.globaltech.com/usa#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="http://www.globaltech.com/usa">
+        <owl:versionIRI rdf:resource="http://www.globaltech.com/usa/1.0.0"/>
+    </owl:Ontology>
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#hasAvailableJobTitle">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/usa#isJobTitleInDepartment"/>
+        <rdfs:label>Available job title available within a department</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#hasCountryOfEmployment">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/usa#US_Country"/>
+        <rdfs:label>Country in which the employee is employed</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#hasJobTitle">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <rdfs:label>The job title that an employee holds</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#isJobTitleInDepartment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/usa#US_Department"/>
+        <rdfs:label>A job title in a department</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#manages">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:label>Identifies who an employee manages (i.e. the employee&apos;s subordinates)</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/usa#worksInDepartment">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/usa#US_Department"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.globaltech.com/usa#hasJobTitle"/>
+            <rdf:Description rdf:about="http://www.globaltech.com/usa#isJobTitleInDepartment"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>Department in which the employee is employed</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#alias">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Another name that the employee is also known as</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#dateOfJoining">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label>Employee&apos;s first day of work with the United States&apos; office</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#empID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Employee&apos;s ID</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#firstName">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Employee&apos;s first name</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#lastName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Employee&apos;s last name or surname</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/usa#monthlySalary">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>Employee&apos;s monthly wage</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:Class rdf:about="http://www.globaltech.com/usa#US_Country">
+        <rdfs:label>Country class</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/usa#US_Department">
+        <rdfs:label>Local department class</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/usa#US_Employee">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.globaltech.com/usa#empID"/>
+        </owl:hasKey>
+        <rdfs:label>Employee class for all employees in the United States</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/usa#US_Title">
+        <rdfs:label>Job position class for all job positions available in the United States office</rdfs:label>
+    </owl:Class>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#HR">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Department"/>
+        <hasAvailableJobTitle rdf:resource="http://www.globaltech.com/usa#HRManager"/>
+        <rdfs:label>Human Resource</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#HRManager">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <isJobTitleInDepartment rdf:resource="http://www.globaltech.com/usa#HR"/>
+        <rdfs:label>Human Resource Manager</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#IT">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Department"/>
+        <hasAvailableJobTitle rdf:resource="http://www.globaltech.com/usa#ITConsultant"/>
+        <rdfs:label>Information Technology</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#ITConsultant">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <isJobTitleInDepartment rdf:resource="http://www.globaltech.com/usa#IT"/>
+        <rdfs:label>IT Consultant</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#IreneTanner">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <hasCountryOfEmployment rdf:resource="http://www.globaltech.com/usa#USA"/>
+        <hasJobTitle rdf:resource="http://www.globaltech.com/usa#ITConsultant"/>
+        <dateOfJoining rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-05-11</dateOfJoining>
+        <empID>20210511001</empID>
+        <firstName>Irene</firstName>
+        <lastName>Tanner</lastName>
+        <monthlySalary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">11000</monthlySalary>
+        <rdfs:label>Irene Tanner</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#JohnDoe">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <hasCountryOfEmployment rdf:resource="http://www.globaltech.com/usa#USA"/>
+        <hasJobTitle rdf:resource="http://www.globaltech.com/usa#SalesRepresentative"/>
+        <alias>Johnny</alias>
+        <dateOfJoining rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-07-10</dateOfJoining>
+        <empID>20190710001</empID>
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+        <monthlySalary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7000</monthlySalary>
+        <rdfs:label>John Doe</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#RobertRooney">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <hasCountryOfEmployment rdf:resource="http://www.globaltech.com/usa#USA"/>
+        <hasJobTitle rdf:resource="http://www.globaltech.com/usa#HRManager"/>
+        <alias>Bob</alias>
+        <dateOfJoining rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-10-01</dateOfJoining>
+        <empID>20241001001</empID>
+        <firstName>Robert</firstName>
+        <lastName>Rooney</lastName>
+        <monthlySalary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9000</monthlySalary>
+        <rdfs:label>Robert Rooney</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#Sales">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Department"/>
+        <hasAvailableJobTitle rdf:resource="http://www.globaltech.com/usa#SalesManager"/>
+        <hasAvailableJobTitle rdf:resource="http://www.globaltech.com/usa#SalesRepresentative"/>
+        <hasAvailableJobTitle rdf:resource="http://www.globaltech.com/usa#SalesRepresentative_State"/>
+        <rdfs:label>Sales</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#SalesManager">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <isJobTitleInDepartment rdf:resource="http://www.globaltech.com/usa#Sales"/>
+        <rdfs:label>Sales Manager</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#SalesRepresentative">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <isJobTitleInDepartment rdf:resource="http://www.globaltech.com/usa#Sales"/>
+        <rdfs:label>Sales Representative</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#SalesRepresentative_State">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Title"/>
+        <isJobTitleInDepartment rdf:resource="http://www.globaltech.com/usa#Sales"/>
+        <rdfs:label>Sales Representative - State Level</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#SarahSontag">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <hasCountryOfEmployment rdf:resource="http://www.globaltech.com/usa#USA"/>
+        <hasJobTitle rdf:resource="http://www.globaltech.com/usa#SalesRepresentative_State"/>
+        <manages rdf:resource="http://www.globaltech.com/usa#JohnDoe"/>
+        <dateOfJoining rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-06-01</dateOfJoining>
+        <empID>20230601001</empID>
+        <firstName>Sarah</firstName>
+        <lastName>Sontag</lastName>
+        <monthlySalary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10000</monthlySalary>
+        <rdfs:label>Sarah Sontag</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#StanleyMiller">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+        <hasCountryOfEmployment rdf:resource="http://www.globaltech.com/usa#USA"/>
+        <hasJobTitle rdf:resource="http://www.globaltech.com/usa#SalesManager"/>
+        <manages rdf:resource="http://www.globaltech.com/usa#JohnDoe"/>
+        <manages rdf:resource="http://www.globaltech.com/usa#SarahSontag"/>
+        <alias>Stan</alias>
+        <dateOfJoining rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-03-01</dateOfJoining>
+        <empID>20230301001</empID>
+        <firstName>Stanley</firstName>
+        <lastName>Miller</lastName>
+        <monthlySalary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12000</monthlySalary>
+        <rdfs:label>Stanley Miller</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/usa#USA">
+        <rdf:type rdf:resource="http://www.globaltech.com/usa#US_Country"/>
+        <rdfs:label>United States</rdfs:label>
+    </owl:NamedIndividual>
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#emp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Assign all employees to Country=USA</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.globaltech.com/usa#US_Country"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/owl#c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.globaltech.com/usa#US_Employee"/>
+                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/owl#emp"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.globaltech.com/usa#hasCountryOfEmployment"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/owl#emp"/>
+                        <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/owl#c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+

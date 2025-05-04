@@ -1,0 +1,660 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.globaltech.com/employee#"
+     xml:base="http://www.globaltech.com/employee"
+     xmlns:cn="http://www.globaltech.com/china#"
+     xmlns:de="http://www.globaltech.com/germany#"
+     xmlns:ex="http://www.globaltech.com/employee#"
+     xmlns:sg="http://www.globaltech.com/singapore#"
+     xmlns:us="http://www.globaltech.com/usa#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="http://www.globaltech.com/employee">
+        <owl:versionIRI rdf:resource="http://www.globaltech.com/employee/1.0.0"/>
+        <owl:imports rdf:resource="http://www.globaltech.com/china/1.0.0"/>
+        <owl:imports rdf:resource="http://www.globaltech.com/germany/1.0.0"/>
+        <owl:imports rdf:resource="http://www.globaltech.com/singapore/1.0.0"/>
+        <owl:imports rdf:resource="http://www.globaltech.com/usa/1.0.0"/>
+        <rdfs:label>GlobalTech&apos;s worldwide employee data ontology</rdfs:label>
+    </owl:Ontology>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#hasAvailableRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAvailableAlignedRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#hasWorkerPosition">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLocalRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#isRoleInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#isWorkerInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInLocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#isWorkerOfCountry">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInCountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#manages">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#manages"/>
+    </rdf:Description>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#hasAlignedRole">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.globaltech.com/employee#hasLocalRole"/>
+            <rdf:Description rdf:about="http://www.globaltech.com/employee#mapsToAlignedRole"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>Aligned role (i.e. organisation level role) held by an employee</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#hasAvailableAlignedRole">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment"/>
+        <rdfs:label>Available job role available within an aligned department (i.e. organisational level department)</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#hasAvailableLocalRole">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/employee#isLocalRoleInLocalDepartment"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#hasCurrency">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <rdfs:label>Specifies the currency in which the employees in a country is paid in</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#hasLocalRole">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+        <rdfs:label>Local office level role held by an employee (i.e. his job title)</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <rdfs:label>A job role in a department</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#isLocalRoleInLocalDepartment">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#managedBy">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/employee#manages"/>
+        <rdfs:label>Identifies who an employee reports to (i.e. the employee&apos;s superior or manager)</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#manages">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:label>Identifies who an employee manages (i.e. the employee&apos;s subordinates)</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#mapsToAlignedDepartment">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/employee#mapsToLocalDepartment"/>
+        <rdfs:label>Specifies the mapping from a department at the local office level to one at the organisational level</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#mapsToAlignedRole">
+        <owl:inverseOf rdf:resource="http://www.globaltech.com/employee#mapsToLocalRole"/>
+        <rdfs:label>Specifies the mapping from a role at the local office level to one at the organisational level</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#mapsToLocalDepartment">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+        <rdfs:label>Specifies the mapping from a department at the organisational level to one at the local office level</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#mapsToLocalRole">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+        <rdfs:label>Specifies the mapping from a role at the organisational level to one at the local office level</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#worksInAlignedDepartment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <rdfs:label>Aligned department (i.e. organisational level department) for which the employee is a member of</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#worksInCountryOffice">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+        <rdfs:label>Country in which the employee is residing when employed by GlobalTech</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.globaltech.com/employee#worksInLocalDepartment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+        <rdfs:label>Local office department for which the employee is a member of</rdfs:label>
+    </owl:ObjectProperty>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#hasAvailablePosition">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAvailableAlignedRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#hasJobPosition">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLocalRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#isJobPositionInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#worksInCountry">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInCountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#worksInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInLocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#countryEmployedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInCountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#hasAvailableRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAvailableAlignedRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#hasRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLocalRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#isRoleInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#managedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#managedBy"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#manages">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#manages"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/singapore#worksInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInLocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#hasAvailableJobTitle">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAvailableAlignedRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#hasCountryOfEmployment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInCountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#hasJobTitle">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLocalRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#isJobTitleInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#isAlignedRoleInAlignedDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#manages">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#manages"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#worksInDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#worksInLocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#englishName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAlias"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#firstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasFirstName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#hasSalary">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasSalary"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#id">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasEmployeeID"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#lastName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLastName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#startDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasHireDate"/>
+    </rdf:Description>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasAge">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasAlias">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Another name that the employee is also known as</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasEmployeeID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Associates an employee with their unique Employee ID.</rdfs:comment>
+        <rdfs:label>has employee ID</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasFirstName">
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Employee&apos;s first name</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasHireDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Stores the hire date of an employee.</rdfs:comment>
+        <rdfs:label>has hire date</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasLastName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Employee&apos;s last name</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#hasSalary">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>Employee&apos;s monthly salary</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/employee#toUSD">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <rdfs:label>Currency exchange rate from one unit of local currency to one US dollar</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#firstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasFirstName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#id">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasEmployeeID"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#lastName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLastName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#monthlySalary">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasSalary"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#startDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasHireDate"/>
+    </rdf:Description>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#age">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAge"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#employeeCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasEmployeeID"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#firstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasFirstName"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#grossSalary">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasSalary"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#hireDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasHireDate"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.globaltech.com/singapore#surname">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLastName"/>
+    </owl:DatatypeProperty>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#alias">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasAlias"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#dateOfJoining">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasHireDate"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#empID">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasEmployeeID"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#firstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasFirstName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#lastName">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasLastName"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#monthlySalary">
+        <rdfs:subPropertyOf rdf:resource="http://www.globaltech.com/employee#hasSalary"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#CN_Country">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#CN_Department">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#CN_Employee">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#Employee"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#CN_JobPosition">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+    </rdf:Description>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#AlignedDepartment">
+        <rdfs:label>Aligned department class at the Organization level</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#AlignedRole">
+        <rdfs:label>Aligned role class at the Organization level</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#CountryOffice">
+        <rdfs:label>Identifies the country where GlobalTech&apos;s offices are</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#Currency">
+        <rdfs:label>Country currencies</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#Employee">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.globaltech.com/employee#hasEmployeeID"/>
+        </owl:hasKey>
+        <rdfs:label>Employee with GlobalTech</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#LocalDepartment">
+        <rdfs:label>Department class at the local office level</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/employee#LocalRole">
+        <rdfs:label>Role class at the local office level</rdfs:label>
+    </owl:Class>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#DE_Country">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#DE_Department">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#DE_Employee">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#Employee"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#DE_JobPosition">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+    </rdf:Description>
+
+    <owl:Class rdf:about="http://www.globaltech.com/singapore#SG_Country">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/singapore#SG_Department">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/singapore#SG_Employee">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#Employee"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.globaltech.com/singapore#SG_JobTitle">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+    </owl:Class>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#US_Country">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#CountryOffice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#US_Department">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalDepartment"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#US_Employee">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#Employee"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#US_Title">
+        <rdfs:subClassOf rdf:resource="http://www.globaltech.com/employee#LocalRole"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/china#China">
+        <hasCurrency rdf:resource="http://www.globaltech.com/employee#CNY"/>
+    </rdf:Description>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#CNY">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <toUSD rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.14</toUSD>
+        <rdfs:label>Chinese Yuan</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#Euro">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <toUSD rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.04</toUSD>
+        <rdfs:label>The Euro</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#HRManager">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/china#HRManager"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/germany#HRManager"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#HRManager"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/usa#HRManager"/>
+        <rdfs:label>Human Resource Manager</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#HROfficer">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#HRAssistant"/>
+        <rdfs:label>Human Resource Officer</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#HumanResource">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#HRManager"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#HROfficer"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/china#HR"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/germany#HR"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/singapore#HR"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/usa#HR"/>
+        <rdfs:label>Human Resource</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#ITConsultant">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/china#ITEngineer"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/germany#ITSolutionsSpecialist"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#ITAnalyst"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/usa#ITConsultant"/>
+        <rdfs:label>Information Technology Consultant</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#ITManager">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/china#ITManager"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#ITManager"/>
+        <rdfs:label>Information Technology Manager</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#InformationTechnology">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#ITConsultant"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#ITManager"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#SeniorITConsultant"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/china#IT"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/germany#IT"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/singapore#IT"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/usa#IT"/>
+        <rdfs:label>Information Technology</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#SGD">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <toUSD rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.74</toUSD>
+        <rdfs:label>Singapore Dollar</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#Sales">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedDepartment"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#SalesConsultant"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#SalesManager"/>
+        <hasAvailableAlignedRole rdf:resource="http://www.globaltech.com/employee#SeniorSalesConsultant"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/singapore#Sales"/>
+        <mapsToLocalDepartment rdf:resource="http://www.globaltech.com/usa#Sales"/>
+        <rdfs:label>Sales</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#SalesConsultant">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#SalesEngineer"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/usa#SalesRepresentative"/>
+        <rdfs:label>Sales Consultant</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#SalesManager">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/usa#SalesManager"/>
+        <rdfs:label>Sales Manager</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#SeniorITConsultant">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/singapore#SeniorITAnalyst"/>
+        <rdfs:label>Senior Information Technology Consultant</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#SeniorSalesConsultant">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#AlignedRole"/>
+        <mapsToLocalRole rdf:resource="http://www.globaltech.com/usa#SalesRepresentative_State"/>
+        <rdfs:label>Senior Sales Consultant</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/employee#USD">
+        <rdf:type rdf:resource="http://www.globaltech.com/employee#Currency"/>
+        <toUSD rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</toUSD>
+        <rdfs:label>US Dollar</rdfs:label>
+    </owl:NamedIndividual>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/germany#Germany">
+        <hasCurrency rdf:resource="http://www.globaltech.com/employee#Euro"/>
+    </rdf:Description>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#HR"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#HRAssistant"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#HRManager"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#IT"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#ITAnalyst"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#ITManager"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#Sales"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#SalesEngineer"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#SeniorITAnalyst"/>
+
+    <owl:NamedIndividual rdf:about="http://www.globaltech.com/singapore#Singapore">
+        <hasCurrency rdf:resource="http://www.globaltech.com/employee#SGD"/>
+    </owl:NamedIndividual>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/usa#USA">
+        <hasCurrency rdf:resource="http://www.globaltech.com/employee#USD"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://www.globaltech.com/employee#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.globaltech.com/employee#emp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>Assign all employees to Country=Germany</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.globaltech.com/germany#DE_Country"/>
+                        <swrl:argument1 rdf:resource="http://www.globaltech.com/employee#c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.globaltech.com/germany#DE_Employee"/>
+                                <swrl:argument1 rdf:resource="http://www.globaltech.com/employee#emp"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.globaltech.com/germany#worksInCountry"/>
+                        <swrl:argument1 rdf:resource="http://www.globaltech.com/employee#emp"/>
+                        <swrl:argument2 rdf:resource="http://www.globaltech.com/employee#c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
