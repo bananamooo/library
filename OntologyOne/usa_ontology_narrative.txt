@@ -1,0 +1,43 @@
+usa_ontology.rdf describes GlobalTech&apos;s United States office employee data model.
+It defines 4 classes, 6 object properties, 6 data properties, and includes 14 individuals in the "http://www.globaltech.com/usa" namespace.
+
+The 4 classes are:
+- US_Country
+- US_Department
+- US_Employee
+- US_Title
+
+
+
+Class US_Country describes Country class.
+It defines 0 object properties, 0 data properties, and includes 1 individuals.
+
+
+Class US_Department describes Local department class.
+It defines 1 object properties, 0 data properties, and includes 3 individuals.
+The 1 object property is:
+- hasAvailableJobTitle, which describes Available job title available within a department, with range US_Title
+
+
+
+Class US_Employee describes Employee class for all employees in the United States.
+It defines 4 object properties, 6 data properties, and includes 5 individuals.
+The 4 object properties are:
+- hasCountryOfEmployment, which describes Country in which the employee is employed, with range US_Country
+- hasJobTitle, which describes The job title that an employee holds, with range US_Title
+- manages, which describes Identifies who an employee manages (i.e. the employee's subordinates), with range US_Employee
+- worksInDepartment, which describes Department in which the employee is employed, with range US_Department
+
+The 6 data properties are:
+- alias, which describes Another name that the employee is also known as, with range string
+- dateOfJoining, which describes Employee's first day of work with the United States' office, with range date
+- empID, which describes Employee's ID, with range string
+- firstName, which describes Employee's first name, with range string
+- lastName, which describes Employee's last name or surname, with range string
+- monthlySalary, which describes Employee's monthly wage, with range decimal
+
+
+Class US_Title describes Job position class for all job positions available in the United States office.
+It defines 1 object properties, 0 data properties, and includes 5 individuals.
+The 1 object property is:
+- isJobTitleInDepartment, which describes A job title in a department, with range US_Department
