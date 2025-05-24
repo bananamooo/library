@@ -1,0 +1,3 @@
+When the narwhal met the unicorn, it wasn't in the ocean or sky—but on a mossy shore where structure met magic. The narwhal, real and quietly powerful, represents the ontology: precise, underappreciated, and foundational. The unicorn, sudden and dazzling, embodies the generative LLM: imaginative, expressive, and born from AI's recent spring. Together, they form OntologyOne — a system where grounded knowledge and creative fluency coexist.
+
+Harper, the chatbot, is your guide through this world. She helps you understand how these two strange and beautiful technologies fit together—like a love story between logic and language, reality and wonder.

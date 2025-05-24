@@ -1,0 +1,3 @@
+As development progressed, each new skill — backend, frontend, UI/UX — gave rise to a corresponding team member. These personas were created not just for division of labor, but to make the solo journey feel like a shared one. Every member of the ${app_name} team represents a facet of what it took to bring the project to life.
+
+The team was intentionally structured as if it were a real, collaborative group. Each member, though virtual in their origin, was intended to reflect a different part of the journey of ${app_name}'s creation, ensuring the project’s growth never felt solitary.
