@@ -1,0 +1,48 @@
+Introduction
+Usa ontology describes GlobalTech's United States office employee data model.
+Specifications for the entities in the ontology are provided in the file "usa_ontology.rdf".
+It defines 4 classes, 6 object properties, 6 data properties, and includes 14 individuals in the "http://www.globaltech.com/usa" namespace.
+
+The 4 classes are:
+1) US_Country
+2) US_Department
+3) US_Employee
+4) US_Title
+
+
+
+Classes
+1) Class US_Country describes Country class.
+It defines 0 object properties, 0 data properties, and includes 1 individuals.
+
+
+2) Class US_Department describes Local department class.
+It defines 1 object properties, 0 data properties, and includes 3 individuals.
+
+US_Department's 1 object property is:
+- hasAvailableJobTitle: Available job title available within a department; range US_Title
+
+
+3) Class US_Employee describes Employee class for all employees in the United States.
+It defines 4 object properties, 6 data properties, and includes 5 individuals.
+
+US_Employee's 4 object properties are:
+- hasCountryOfEmployment: Country in which the employee is employed; range US_Country
+- hasJobTitle: The job title that an employee holds; range US_Title
+- manages: Identifies who an employee manages (i.e. the employee's subordinates); range US_Employee
+- worksInDepartment: Department in which the employee is employed; range US_Department
+
+US_Employee's 6 data properties are:
+- alias: Another name that the employee is also known as; range string
+- dateOfJoining: Employee's first day of work with the United States' office; range date
+- empID: Employee's ID; range string
+- firstName: Employee's first name; range string
+- lastName: Employee's last name or surname; range string
+- monthlySalary: Employee's monthly wage; range decimal
+
+
+4) Class US_Title describes Job position class for all job positions available in the United States office.
+It defines 1 object properties, 0 data properties, and includes 5 individuals.
+
+US_Title's 1 object property is:
+- isJobTitleInDepartment: A job title in a department; range US_Department

@@ -1,0 +1,73 @@
+Introduction
+Singapore ontology describes GlobalTech's Singapore office employee data ontology.
+Specifications for the entities in the ontology are provided in the file "singapore_ontology.rdf".
+It defines 5 classes, 8 object properties, 18 data properties, and includes 23 individuals in the "http://www.globaltech.com/singapore" namespace.
+
+The 5 classes are:
+1) SG_CPFAgeBand
+2) SG_Country
+3) SG_Department
+4) SG_Employee
+5) SG_JobTitle
+
+
+
+Classes
+1) Class SG_CPFAgeBand describes CPF Age Band class to support the mandatory CPF plan for SIngaporeans and permanent residents.
+It defines 0 object properties, 5 data properties, and includes 5 individuals.
+
+SG_CPFAgeBand's 5 data properties are:
+- cpfAgeGroupMax: Maximum age for a CPF age group; range integer
+- cpfAgeGroupMin: Minimum age for a CPF age group; range integer
+- cpfEmployeeRate: Employee's CPF contribution rate; range decimal
+- cpfEmployerRate: Employer's CPF contribution rate; range decimal
+- cpfRate: Expressed as a percentage of salary; range decimal
+
+
+2) Class SG_Country describes Country.
+It defines 0 object properties, 2 data properties, and includes 1 individuals.
+
+SG_Country's 2 data properties are:
+- bonusRate: Bonus rate given in the form of salary multiplier; range decimal
+- cpfSalaryCeiling: CPF Ordinary Wage ceiling ($7,400 as of 2025); range decimal
+
+
+3) Class SG_Department describes Local department class.
+It defines 1 object properties, 0 data properties, and includes 3 individuals.
+
+SG_Department's 1 object property is:
+- hasAvailableRole: Available job role available within a department; range SG_JobTitle
+
+
+4) Class SG_Employee describes Employee class for all employees in Singapore.
+It defines 6 object properties, 9 data properties, and includes 8 individuals.
+
+SG_Employee's 6 object properties are:
+- countryEmployedIn: Country in which the employee is residing when employed by GlobalTech; range SG_Country
+- hasRole: Organisational role held by an employee (i.e. his job title); range SG_JobTitle
+- inCPFAgeBand: Links employees to their CPF age group; range SG_CPFAgeBand
+- manages: Identifies who an employee manages (i.e. the employee's subordinates); range SG_Employee
+- worksInDepartment: Department in which an employee works; range SG_Department
+- managedBy: Identifies who an employee is managed by (i.e. the employee's superior); range SG_Employee
+
+SG_Employee's 9 data properties are:
+- age: Employee's age; range integer
+- cpfEmployeeContribution: Employee's CPF contribution rate as a dollar amount; range decimal
+- cpfEmployeeContributionRate: Employee's CPF contribution rate as a percentage; range decimal
+- employeeCode: Employee's unique identifier; range string
+- firstName: Employee's first name; range string
+- grossSalary: Employee's monthly salary before employee's CPF contribution; range decimal
+- hireDate: Date employee started working with the Singapore office; range date
+- performanceRating: Employee's rating from the last performance review; range decimal
+- surname: Employee's surname; range string
+
+
+5) Class SG_JobTitle describes Job position class for all job positions available in the Singapore office.
+It defines 1 object properties, 2 data properties, and includes 6 individuals.
+
+SG_JobTitle's 1 object property is:
+- isRoleInDepartment: A job role in a department; range SG_Department
+
+SG_JobTitle's 2 data properties are:
+- maxSalary: For a given job title, the maximum monthly salary as a guideline; range integer
+- minSalary: For a given job title, the minimum monthly salary as a guideline; range integer

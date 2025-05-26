@@ -1,0 +1,48 @@
+Introduction
+China ontology describes GlobalTech's China office employee data model (员工资料库).
+Specifications for the entities in the ontology are provided in the file "china_ontology.rdf".
+It defines 4 classes, 6 object properties, 6 data properties, and includes 9 individuals in the "http://www.globaltech.com/china" namespace.
+
+The 4 classes are:
+1) CN_Country
+2) CN_Department
+3) CN_Employee
+4) CN_JobPosition
+
+
+
+Classes
+1) Class CN_Country describes Country (国家).
+It defines 0 object properties, 0 data properties, and includes 1 individuals.
+
+
+2) Class CN_Department describes Department (部门).
+It defines 1 object properties, 0 data properties, and includes 2 individuals.
+
+CN_Department's 1 object property is:
+- hasAvailableRole: Department has job position (有部门职位); range CN_JobPosition
+
+
+3) Class CN_Employee describes Employee (员工).
+It defines 4 object properties, 6 data properties, and includes 3 individuals.
+
+CN_Employee's 4 object properties are:
+- hasWorkerPosition: Has employee job position (员工职位); range CN_JobPosition
+- isWorkerInDepartment: Is employee in department (员工所属部门); range CN_Department
+- isWorkerOfCountry: Is employee in country (是国家员工); range CN_Country
+- manages: Manages employee (管理); range CN_Employee
+
+CN_Employee's 6 data properties are:
+- englishName: Has alias (绰号); range string
+- firstName: Has first name (员工名字); range string
+- hasSalary: Has employee monthly salary (薪金); range integer
+- id: Has employee ID (员工身份号码); range string
+- lastName: Has last name (员工姓名); range string
+- startDate: Has hired date (聘用日期); range date
+
+
+4) Class CN_JobPosition describes Job Position (职位).
+It defines 1 object properties, 0 data properties, and includes 3 individuals.
+
+CN_JobPosition's 1 object property is:
+- isRoleInDepartment: Is job position in department (职位所属部门); range CN_Department
