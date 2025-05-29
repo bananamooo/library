@@ -1,10 +1,12 @@
-GlobalTech - A Use Case
-GlobalTech is an IT consultancy With operations in regions like Singapore, China, Germany, and the USA, each maintaining its own HR systems and data structures. As it faces  rapid growth, GlobalTech needed a unified solution to harmonize critical information relating to its human resources. 
+OntologyOne is a cloud-based ontology-powered solution developed to address the challenge of harmonizing fragmented human resource (HR) data across GlobalTech’s international offices. It is designed as a prototype to explore how ontologies and large language models (LLMs) can be combined to achieve semantic integration of diverse, multilingual HR data. It was built over 4 months by the dev team.
 
+GlobalTech is a fast-growing IT consultancy operating in multiple regions, including Singapore, China, Germany, and the USA. Each regional office maintains its own HR system and schema, resulting in data silos and inconsistent representations of employees, departments, roles, and benefits.
 
-OntologyOne - The Solution
-OntologyOne is a vision prototype developed to explore how ontologies and large language models (LLMs) can be used to integrate heterogeneous Human Resource (HR) data across international offices. The project is based on a fictitious company, GlobalTech, which represents a typical fast-growing IT consultancy facing real-world data harmonization challenges.
+OntologyOne solves this problem by creating a unified semantic layer — a global ontology framework that integrates these regional differences into a cohesive, machine-interpretable knowledge graph. At its core is a Unified Ontology, which acts as the central backbone that aligns and connects four regional RDF/XML ontologies. These ontologies represent the local HR models for each office and are formally linked through shared concepts defined in the unified layer.
 
-In our imagined use case, each regional office maintains its own HR data model, resulting in fragmented and inconsistent employee data. As a cloud-based app, OntologyOne uses  OWL ontologies authored in RDF/XML format and large language models to support ubiquitous access to semantic integration of multilingual, region-specific HR data by GlobalTech's HR department.
+By using OWL ontologies and LLM-based natural language interfaces, OntologyOne enables HR professionals at GlobalTech to:
+- Query complex HR relationships across regions
+- Access consistent, semantically enriched employee data
+- Bridge cross-border schema differences using shared ontology logic
 
-To this end, OntologyOne leverages ontologies to create a shared semantic framework that models employee-related concepts (e.g., roles, departments, office locations) across all regions. The ontology backbone consists of 4 local office RDF ontologies (i.e. China, Germany, Singapore and the United States) and 1 ontology that unifies these local office ontologies.
+In short, OntologyOne is about semantic integration, ontology-based reasoning, and cross-regional data harmonization — providing a powerful foundation for globally consistent HR insights.
