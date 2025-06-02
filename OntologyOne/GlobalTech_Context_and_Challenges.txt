@@ -1,0 +1,10 @@
+Company Profile:
+GlobalTech is a multinational IT consultancy with offices in Singapore, China, Germany, and the United States. The company’s rapid global growth led to fragmented HR systems, each using distinct data schemas and regional workflows.
+
+Integration Challenges:
+- Inconsistent representations of employees, departments, and benefits across offices.
+- Manual data harmonization was error-prone, costly, and politically sensitive.
+- Conventional centralization approaches failed to respect local autonomy and multilingual complexity.
+
+Motivation:
+These obstacles drove the need for a scalable, intelligent system that supports semantic alignment while preserving regional uniqueness — a challenge met through the design of OntologyOne and its layered ontology model.

@@ -1,0 +1,16 @@
+OntologyOne is a cloud-native, ontology-powered solution built to harmonize fragmented human resource (HR) data across GlobalTech’s international offices. Developed over four months as a proof-of-vision prototype, it demonstrates how semantic technologies and large language models (LLMs) can be combined to achieve intelligent, scalable, and low-disruption integration.
+
+Core Goals:
+- Address siloed, inconsistent HR data across regions (e.g., Singapore, Germany, China, USA).
+- Maintain local workflows and terminology while providing unified global visibility.
+- Showcase a forward-looking solution for multilingual, cross-regional semantic integration.
+
+Architecture Highlights:
+- Modular architecture with FastAPI backend and React frontend.
+- Ontology modeling using OWL and Protégé.
+- Unified Ontology connects four region-specific RDF/XML ontologies.
+- Semantic graph database supports SPARQL querying.
+- LLM-based natural language interface for intuitive querying.
+- Cloud-native services for vector search and orchestration.
+
+OntologyOne exemplifies a modern approach to semantic AI integration, combining conceptual modeling, language understanding, and data interoperability within a production-ready architecture.

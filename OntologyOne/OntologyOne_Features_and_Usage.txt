@@ -1,0 +1,22 @@
+User Interaction and AI Querying:
+- Natural language interface (LLM-powered) translates HR questions into semantic queries.
+- Enables HR staff to explore complex data relationships without technical skills or SPARQL knowledge.
+
+Core Capabilities:
+- Search and view employee records across regions.
+- Visualize organizational structure.
+- Query multilingual, semantically harmonized data.
+
+Planned Enhancements:
+- Add/update/delete records via interface.
+- Align roles, qualifications, and experience across regions.
+- Improve multilingual handling and regional customization.
+- Integrate analytics tools for workforce insights.
+
+Illustrative Use Cases:
+- "Who are our developers and how much are they paid?"
+- Track cross-location skills gaps or overlaps.
+- Generate compliance reports by region.
+- Harmonize similar job titles across countries.
+
+These capabilities reflect OntologyOne’s practical value and roadmap toward enterprise-scale solutions.
