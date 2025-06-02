@@ -1,7 +1,7 @@
 [
   {
     "file_name": "OntologyOne_system_infrastructure.png",
-    "description": "OntologyOne system architecture: User -> Natural language -> Query translation engine -> Graph database -> Database results -> User"
+    "description": "OntologyOne system architecture"
   },
   {
     "file_name": "cn_classes.png",
