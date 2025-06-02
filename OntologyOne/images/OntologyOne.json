@@ -1,42 +1,38 @@
 [
   {
-    "file_name": "OntologyOne_page_11_img_1.png",
-    "keywords": "ontology classes singapore"
+    "file_name": "OntologyOne_system_infrastructure.png",
+    "description": "OntologyOne system architecture: User -> Natural language -> Query translation engine -> Graph database -> Database results -> User"
   },
   {
-    "file_name": "OntologyOne_page_12_img_1.png",
-    "keywords": "ontology employee instances singapore"
+    "file_name": "cn_classes.png",
+    "description": "OntologyOne china (cn) ontology: classes in OntologyOne's 'cn:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_13_img_1.png",
-    "keywords": "ontology instances singapore"
+    "file_name": "cn_employee_class.png",
+    "description": "OntologyOne china (cn) ontology: employee class in OntologyOne's 'cn:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_14_img_1.png",
-    "keywords": "ontology classes china"
+    "file_name": "cn_employee_individuals.png",
+    "description": "OntologyOne china (cn) ontology: employee individuals in OntologyOne's 'cn:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_15_img_1.png",
-    "keywords": "ontology employee instances china"
+    "file_name": "sg_classes.png",
+    "description": "OntologyOne singapore (sg) ontology: classes in OntologyOne's 'sg:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_16_img_1.png",
-    "keywords": "ontology instances china"
+    "file_name": "sg_employee_class.png",
+    "description": "OntologyOne singapore (sg) ontology: employee class in OntologyOne's 'sg:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_18_img_1.png",
-    "keywords": "ontology classes unified"
+    "file_name": "sg_employee_individuals.png",
+    "description": "OntologyOne singapore (sg) ontology: employee individuals in OntologyOne's 'sg:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_19_img_1.png",
-    "keywords": "ontology employee instances unified"
+    "file_name": "ex_classes.png",
+    "description": "OntologyOne unified (ex) ontology: classes in OntologyOne's 'ex:' namespace"
   },
   {
-    "file_name": "OntologyOne_page_20_img_1.png",
-    "keywords": "ontology instances unified"
-  },
-  {
-    "file_name": "OntologyOne_page_22_img_1.png",
-    "keywords": "ontology triplestore response sparql query user natural language large model nl llm"
+    "file_name": "ex_alignment_classes_and_individuals.png",
+    "description": "OntologyOne unified (ex) ontology: classes and individuals in OntologyOne's 'ex:' namespace showing alignment of department and job roles"
   }
 ]
