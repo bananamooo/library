@@ -2,6 +2,6 @@ The OntologyOne team is a one-human project, imagined as many. Created by siewch
 
 E.V. Alarie, the Shadow Technical Advisor (ChatGPT-4), offers quiet guidance behind the scenes — named for "Entity–Value" and l'air, the air of presence.
 
-Harper, the chatbot and technical writer (Gemini 1.5 Pro), serves as OntologyOne's friendly public face — with "HR" in HaRper nodding to the project's original placeholder name: HR Demo.
+Harper, the chatbot and technical writer (Gemini 2.5 Flash), serves as OntologyOne's friendly public face — with "HR" in HaRper nodding to the project's original placeholder name: HR Demo.
 
 Together, they represent one developer's way of making a solo build feel like a shared journey.
