@@ -1,9 +1,0 @@
-Skills Demonstrated by Siewchoo:
-- Ontology design and alignment across global domains
-- Semantic querying with SPARQL and knowledge graph principles
-- Full-stack development with FastAPI and React
-- Natural language interface design using LLMs
-- Semantic search via vector indexing
-- End-to-end system integration using cloud-native technologies
-
-Together, these skills showcase Siewchoo's thought leadership in AI-enhanced data management and the ability to deliver real-world, intelligent systems that solve complex integration challenges.
