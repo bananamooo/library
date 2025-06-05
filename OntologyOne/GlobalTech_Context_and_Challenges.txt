@@ -1,5 +1,5 @@
 Company Profile:
-GlobalTech is a multinational IT consultancy with offices in Singapore, China, Germany, and the United States. The company’s rapid global growth led to fragmented HR systems, each using distinct data schemas and regional workflows.
+GlobalTech is a fictitious multinational IT consultancy with offices in Singapore, China, Germany, and the United States. The company’s rapid global growth led to fragmented HR systems, each using distinct data schemas and regional workflows.
 
 Integration Challenges:
 - Inconsistent representations of employees, departments, and benefits across offices.
